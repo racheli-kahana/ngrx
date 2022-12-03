@@ -1,6 +1,7 @@
 import { initialTaskState, TasksState } from "../states/tasks.state"
-import { taskActions } from "../actions/task.action"
-
+import { Add } from "../actions/task.action"
+import { Action, createReducer, on } from "@ngrx/store";
+/*
 export const taskReducer = (
   state = initialTaskState,
   action: taskActions
@@ -31,9 +32,18 @@ export const taskReducer = (
     default :{return state}
   }
 }
+*/
 
 
+const taskReducer = createReducer(
+  initialTaskState,
+  on(Add, (state, {id,task }) => ({
+    ...state,
+   
+  })))
 
-
+export function reducer(state: TasksState | undefined, action: Action) {
+  return taskReducer(state, action);
+}
 
 

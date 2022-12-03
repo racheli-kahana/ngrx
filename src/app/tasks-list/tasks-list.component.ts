@@ -4,6 +4,7 @@ import{Store}from'@ngrx/store'
 import {Observable} from 'rxjs';
 import{TasksState}from'../store/states/tasks.state'
 import { taskSelector } from '../store/selectors/task.selector';
+import { Add } from '../store';
 
 @Component({
   selector: 'app-tasks-list',
@@ -11,11 +12,15 @@ import { taskSelector } from '../store/selectors/task.selector';
   styleUrls: ['./tasks-list.component.css']
 })
 export class TasksListComponent {
- todos$:Observable<Task[]>
+ //todos$:Observable<Task[]>
+ todos$=this.st.select(taskSelector);
  
  constructor(private st: Store<TasksState>){
-   this.todos$=this.st.select(taskSelector);
    this.todos$.subscribe(data=>console.log(data))
+
  }
- 
+ ngOnInit(){
+  console.log("jkhjhg")
+  this.st.dispatch(Add({id:1,task:{id:9,description:""}}))
+ }
 }

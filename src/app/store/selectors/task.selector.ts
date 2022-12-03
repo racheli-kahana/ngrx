@@ -1,7 +1,10 @@
-import { Task } from 'src/app/Models/Task'
+import{createSelector,createFeatureSelector}from'@ngrx/store'
 import{TasksState}from'../states/tasks.state'
 
-
+export const selectTasks = createFeatureSelector<TasksState>("menus");
 
 //export const tasks=createSelector(taskState,(tasksarr:TasksSate)=>tasksarr.tasks)
-export const taskSelector=(taskstate:TasksState):Task[]=>taskstate.tasks
+export const taskSelector = createSelector(
+    selectTasks,
+    (state: TasksState) => state.tasks
+  );
