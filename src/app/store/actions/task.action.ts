@@ -1,8 +1,9 @@
 import { createAction,props} from '@ngrx/store';
-import { Task } from "src/app/Models/Task";
+import { Subtask } from 'src/app/Models/Subtask';
 
 
-export const Add=createAction( '[TASK]Add SubTask',props<{id:number,task:Task}>())
+
+export const Add=createAction( '[TASK]Add SubTask',props<{id:number,task:Subtask}>())
 export const Delete=createAction('[TASK]Delete SubTask',props<{taskid:number}>())
 
 

@@ -20,11 +20,11 @@ import { reducer } from './store/reducers/task.reducer';
     BrowserModule,
     AppRoutingModule,
    StoreModule.forRoot(reducers,{metaReducers}),
-  //  StoreModule.forRoot(reducer),
+   AppRoutingModule,
 
    StoreDevtoolsModule.instrument({
     name: 'DevTools & Debugging in NgRx',
-    maxAge: 25, 
+    maxAge: 25,
     logOnly: environment.production
   }),
   ],
