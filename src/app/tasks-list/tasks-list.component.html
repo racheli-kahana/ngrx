@@ -1,4 +1,6 @@
+<ul>
+  <li *ngFor="let item of todos$ | async" (click)="open(item.id)">{{item.id}}{{item.description}}</li>
+  <router-outlet></router-outlet>
+</ul>
 
-<div>hello</div>
-<div *ngFor="let item of todos$ | async" (click)="open(item)">{{item.id}}{{item.description}}</div>
-<router-outlet></router-outlet>
+

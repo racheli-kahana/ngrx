@@ -1,5 +1,7 @@
 
 <div *ngFor="let item of task.subTasks">{{item.id}}{{item.description}}</div>
-<!-- <button (click)="add(item.id,{id:0,description:added})">add a subTask</button> -->
-<!-- <button (click)="delete()">delete a subTask</button> -->
-
+ <button (click)="open()">add a subTask</button>
+ <router-outlet></router-outlet>
+<button >delete a subTask</button>
+<!-- (click)="add(item.id,{id:0,description:added})" -->
+<!-- (click)="delete()" -->

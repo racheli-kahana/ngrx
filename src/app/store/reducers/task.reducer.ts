@@ -4,9 +4,9 @@ import { Action, createReducer, on } from "@ngrx/store";
 
 const taskReducer = createReducer(
   initialTaskState,
-  
+
   on(Add, (state, { id,task }) => {
-    let newArr = state.tasks;
+    let newArr =[... state.tasks];
     newArr.find(a => a.id == id)?.subTasks?.push(task)
     return{
       ...state,

@@ -22,11 +22,11 @@ export class TasksListComponent {
  }
  ngOnInit(){
   console.log("jkhjhg")
- this.st.dispatch(Add({id:1,task:{id:9,description:""}}))
+ //this.st.dispatch(Add({id:1,task:{id:9,description:""}}))
 
  }
- open(task:Task){
-  this.rout.navigate(['/subtask',{'task':JSON.stringify(task)}])
+ open(taskid:number){
+  this.rout.navigate(['/subtask',taskid])
  }
 
 }
