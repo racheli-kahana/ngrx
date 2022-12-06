@@ -3,7 +3,7 @@ import{Input}from'@angular/core'
 import{ActivatedRoute }from'@angular/router'
 import { Task } from '../Models/Task';
 import{Store}from'@ngrx/store'
-import { taskSelector } from '../store';
+import { Delete, taskSelector } from '../store';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-sub-tasks-list',
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class SubTasksListComponent {
 
 @Input()
- task:Task={id:0,description:"",subTasks:[]};
+ task:Task
  id:number=0
  constructor(private route:ActivatedRoute,private st:Store,private rout:Router){}
 
@@ -27,12 +27,10 @@ getTask(){
   this.st.select(taskSelector).subscribe(data=>{this.task=data.find(a=>a.id==this.id)})
 }
 
-open(){
-this.rout.navigate(['/form',this.id])
+
+ delete(id:number){
+ this.st.dispatch(Delete({taskid:id}))
 }
-// delete(id:number){
-//   this.st.dispatch(Delete({taskid:id}))
-// }
 
 }
 

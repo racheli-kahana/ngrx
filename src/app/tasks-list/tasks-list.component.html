@@ -1,6 +1,12 @@
-<ul>
-  <li *ngFor="let item of todos$ | async" (click)="open(item.id)">{{item.id}}{{item.description}}</li>
-  <router-outlet></router-outlet>
+<ul class="list-group list-group-horizontal rounded-0">
+  <li *ngFor="let item of todos$ | async">
+    <div (click)="open(item.id)"   [ngClass]="{'my_class': selectedtask === item.id}">{{item.id}}{{item.description}}</div>
+     <label>num os subTasks:{{item.subTasks.length}}</label>
+<br/>
+     <button (click)="open2(item.id)">add a subTask</button>
+  </li>
 </ul>
-
+<div>
+  <router-outlet></router-outlet>
+</div>
 

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subtask } from '../Models/Subtask';
 import { Add } from '../store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-form',
@@ -12,10 +13,10 @@ import { Add } from '../store';
 export class TaskFormComponent {
 id:number=0;
 description:string=""
-newTask:Subtask={id:this.id,description:this.description}
+newTask:Subtask
 
 getId:number
-constructor(private route:ActivatedRoute,private st:Store)
+constructor(private route:ActivatedRoute,private st:Store,private router:Router)
 {}
 
 ngOnInit(){
@@ -24,6 +25,8 @@ ngOnInit(){
 }
 
 submit(){
+ this.newTask={id:this.id,description:this.description}
    this.st.dispatch(Add({id:this.getId,task:this.newTask}))
+   this.router.navigate(['/subtask',this.getId])
 }
 }

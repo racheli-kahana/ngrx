@@ -15,18 +15,22 @@ import{Router}from '@angular/router'
 export class TasksListComponent {
  //todos$:Observable<Task[]>
  todos$=this.st.select(taskSelector);
-
+selectedtask
  constructor(private st: Store<TasksState>,private rout:Router){
    this.todos$.subscribe(data=>console.log(data))
-
  }
+
  ngOnInit(){
   console.log("jkhjhg")
- //this.st.dispatch(Add({id:1,task:{id:9,description:""}}))
-
  }
+
  open(taskid:number){
+  this.selectedtask=taskid
   this.rout.navigate(['/subtask',taskid])
  }
+
+ open2(id:number){
+  this.rout.navigate(['/form',id])
+  }
 
 }

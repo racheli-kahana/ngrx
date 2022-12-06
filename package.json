@@ -23,6 +23,8 @@
     "@ngrx/router-store": "^14.3.2",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
+    "bootstrap": "^5.2.3",
+    "lodash.clonedeep": "^4.5.0",
     "rxjs": "~7.5.0",
     "zone.js": "~0.12.0"
   },
