@@ -1,6 +1,9 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1>task{{task.id}} subtasks:</h1>
+<div *ngFor="let item of task.subTasks"><p> <b>itemId:</b>{{item.id}}</p>
+  <p> <b>itemDescription:</b>{{item.description}}</p>
+<button (click)="delete(item.id)" class="btn">delete a subTask <i class="fa fa-trash"></i></button>
 
-<div *ngFor="let item of task.subTasks">{{item.id}}{{item.description}}
-<button (click)="delete(item.id)">delete a subTask</button>
 </div>
 <!-- <button (click)="open()">add a subTask</button> -->
  <router-outlet></router-outlet>

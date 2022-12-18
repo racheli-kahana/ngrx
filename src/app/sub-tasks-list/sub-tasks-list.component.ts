@@ -15,7 +15,11 @@ export class SubTasksListComponent {
 @Input()
  task:Task
  id:number=0
- constructor(private route:ActivatedRoute,private st:Store,private rout:Router){}
+ constructor(private route:ActivatedRoute,private st:Store,private rout:Router){
+  route.params.subscribe(val => {
+    {this.id = val['id'];}
+    this.getTask();  });
+ }
 
  ngOnInit(){
   console.log("hi subTask")
@@ -26,7 +30,6 @@ export class SubTasksListComponent {
 getTask(){
   this.st.select(taskSelector).subscribe(data=>{this.task=data.find(a=>a.id==this.id)})
 }
-
 
  delete(id:number){
  this.st.dispatch(Delete({taskid:id}))

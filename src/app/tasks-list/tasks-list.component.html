@@ -1,12 +1,18 @@
-<ul class="list-group list-group-horizontal rounded-0">
-  <li *ngFor="let item of todos$ | async">
-    <div (click)="open(item.id)"   [ngClass]="{'my_class': selectedtask === item.id}">{{item.id}}{{item.description}}</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="card">
+<ul class="list-group">
+  <li *ngFor="let item of todos$ | async" class="list-group-item list-group-item-secondary">
+    <div (click)="open(item.id)"  >
+      <p  [ngClass]="{'my_class': selectedtask === item.id}">
+        <b>itemId:</b>{{item.id}}</p>
+      <p> <b>itemDescription:</b>{{item.description}}</p>
+    </div>
      <label>num os subTasks:{{item.subTasks.length}}</label>
 <br/>
-     <button (click)="open2(item.id)">add a subTask</button>
+     <button (click)="open2(item.id)"> add a subTask <i class="fa fa-plus"></i></button>
   </li>
 </ul>
 <div>
   <router-outlet></router-outlet>
 </div>
-
+</div>

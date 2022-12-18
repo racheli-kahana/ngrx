@@ -18,6 +18,8 @@ export class TasksListComponent {
 selectedtask
  constructor(private st: Store<TasksState>,private rout:Router){
    this.todos$.subscribe(data=>console.log(data))
+  
+
  }
 
  ngOnInit(){
